@@ -1,29 +1,29 @@
 function tetrisGame(){
 	var d = document,
-		gamePaused = false,
-		gameStarted = false,
-		gameSpeed = 1000,
-		gameLineComplete = 0,
-		gameCurrentScore = 0,
-		gameCurrentLevel = 1,
-		gameMap = [],
-		gameMapCounter = [],
-		gameLines = 20,
-		gameColumns = 10,
-		gameObjects = [],
-		listObjects = [],
-		piecesUnit = 34,
-		borderWidth = 5,
-		canvasWidth = (gameColumns*(piecesUnit-borderWidth))+borderWidth,
-		canvasHeight = (gameLines*(piecesUnit-borderWidth))+borderWidth,
-		gameInterval = false,
-		_currentObject = false,
-		_nextObject = false,
-		gameStage = d.getElementById("gameStage"),
-		ctx = gameStage.getContext("2d"),
-		objGameScore = d.getElementById("gameScore"),
-		objGameLevel = d.getElementById("gameLevel"),
-		objGameLines = d.getElementById("gameLines");
+	gamePaused = false,
+	gameStarted = false,
+	gameSpeed = 1000,
+	gameLineComplete = 0,
+	gameCurrentScore = 0,
+	gameCurrentLevel = 1,
+	gameMap = [],
+	gameMapCounter = [],
+	gameLines = 20,
+	gameColumns = 10,
+	gameObjects = [],
+	listObjects = [],
+	piecesUnit = 34,
+	borderWidth = 5,
+	canvasWidth = (gameColumns*(piecesUnit-borderWidth))+borderWidth,
+	canvasHeight = (gameLines*(piecesUnit-borderWidth))+borderWidth,
+	gameInterval = false,
+	_currentObject = false,
+	_nextObject = false,
+	gameStage = d.getElementById("gameStage"),
+	ctx = gameStage.getContext("2d"),
+	objGameScore = d.getElementById("gameScore"),
+	objGameLevel = d.getElementById("gameLevel"),
+	objGameLines = d.getElementById("gameLines");
 
 	function getRandomNumber(limit){
 		return Math.floor(Math.random()*limit);
@@ -237,11 +237,11 @@ function tetrisGame(){
 			var x = p[0], y = p[1];
 			switch(rn){
 				case 0:
-					this.clear().setPoints([[x-1,y],[x,y],[x+1,y],[x+2,y]]).draw();
-					break;
+				this.clear().setPoints([[x-1,y],[x,y],[x+1,y],[x+2,y]]).draw();
+				break;
 				case 1:
-					this.clear().setPoints([[x,y-1],[x,y],[x,y+1],[x,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y-1],[x,y],[x,y+1],[x,y+2]]).draw();
+				break;
 			}
 			this.rotateNumber = (!rn%2);
 		};
@@ -262,11 +262,11 @@ function tetrisGame(){
 			var x = p[0], y = p[1];
 			switch(rn){
 				case 0:
-					this.clear().setPoints([[x,y],[x,y+1],[x+1,y+1],[x+1,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x,y+1],[x+1,y+1],[x+1,y+2]]).draw();
+				break;
 				case 1:
-					this.clear().setPoints([[x,y],[x+1,y],[x,y+1],[x-1,y+1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x+1,y],[x,y+1],[x-1,y+1]]).draw();
+				break;
 			}
 			this.rotateNumber = (!rn%2);
 		};
@@ -282,11 +282,11 @@ function tetrisGame(){
 			var x = p[0], y = p[1];
 			switch(rn){
 				case 0:
-					this.clear().setPoints([[x,y],[x,y+1],[x+1,y],[x+1,y-1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x,y+1],[x+1,y],[x+1,y-1]]).draw();
+				break;
 				case 1:
-					this.clear().setPoints([[x,y],[x-1,y],[x,y+1],[x+1,y+1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x-1,y],[x,y+1],[x+1,y+1]]).draw();
+				break;
 			}
 			this.rotateNumber = (!rn%2);
 		};
@@ -302,17 +302,17 @@ function tetrisGame(){
 			var x = p[0], y = p[1];
 			switch(rn){
 				case 0:
-					this.clear().setPoints([[x,y],[x,y+1],[x+1,y+1],[x,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x,y+1],[x+1,y+1],[x,y+2]]).draw();
+				break;
 				case 1:
-					this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x,y+1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x,y+1]]).draw();
+				break;
 				case 2:
-					this.clear().setPoints([[x,y],[x,y+1],[x-1,y+1],[x,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x,y+1],[x-1,y+1],[x,y+2]]).draw();
+				break;
 				case 3:
-					this.clear().setPoints([[x,y],[x,y+1],[x+1,y+1],[x-1,y+1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x,y+1],[x+1,y+1],[x-1,y+1]]).draw();
+				break;
 			}
 			this.rotateNumber = (++rn>3)?0:rn;
 		};
@@ -328,17 +328,17 @@ function tetrisGame(){
 			var x = p[0], y = p[1];
 			switch(rn){
 				case 0:
-					this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x+1,y+1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x+1,y+1]]).draw();
+				break;
 				case 1:
-					this.clear().setPoints([[x,y],[x,y+1],[x,y+2],[x-1,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x,y+1],[x,y+2],[x-1,y+2]]).draw();
+				break;
 				case 2:
-					this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x-1,y-1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x-1,y-1]]).draw();
+				break;
 				case 3:
-					this.clear().setPoints([[x,y],[x+1,y],[x,y+1],[x,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x+1,y],[x,y+1],[x,y+2]]).draw();
+				break;
 			}
 			this.rotateNumber = (++rn>3)?0:rn;
 		};
@@ -354,17 +354,17 @@ function tetrisGame(){
 			var x = p[0], y = p[1];
 			switch(rn){
 				case 0:
-					this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x+1,y-1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x-1,y],[x+1,y],[x+1,y-1]]).draw();
+				break;
 				case 1:
-					this.clear().setPoints([[x,y],[x,y+1],[x,y+2],[x+1,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x,y+1],[x,y+2],[x+1,y+2]]).draw();
+				break;
 				case 2:
-					this.clear().setPoints([[x,y],[x+1,y],[x-1,y],[x-1,y+1]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x+1,y],[x-1,y],[x-1,y+1]]).draw();
+				break;
 				case 3:
-					this.clear().setPoints([[x,y],[x-1,y],[x,y+1],[x,y+2]]).draw();
-					break;
+				this.clear().setPoints([[x,y],[x-1,y],[x,y+1],[x,y+2]]).draw();
+				break;
 			}
 			this.rotateNumber = (++rn>3)?0:rn;
 		};
@@ -389,36 +389,36 @@ function tetrisGame(){
 			var keyCode = event.keyCode;
 			switch(keyCode){
 				case 0x25:
-					if(!gamePaused){
-						_currentObject.moveLeft();
-					}
-					break;
+				if(!gamePaused){
+					_currentObject.moveLeft();
+				}
+				break;
 				case 0x26:
-					if(!gamePaused){
-						_currentObject.rotate90();
-					}
-					break;
+				if(!gamePaused){
+					_currentObject.rotate90();
+				}
+				break;
 				case 0x27:
-					if(!gamePaused){
-						_currentObject.moveRight();
-					}
-					break;
+				if(!gamePaused){
+					_currentObject.moveRight();
+				}
+				break;
 				case 0x28:
-					if(!gamePaused){
-						_currentObject.moveDown();
-					}
-					break;
+				if(!gamePaused){
+					_currentObject.moveDown();
+				}
+				break;
 				case 0x50:
-					if(!gamePaused){
-						gamePaused = true;
-						clearInterval(gameInterval);
-					}else{
-						gamePaused = false;
-						gameInterval = setInterval(moveGame,1000);
-					}
-					break;
+				if(!gamePaused){
+					gamePaused = true;
+					clearInterval(gameInterval);
+				}else{
+					gamePaused = false;
+					gameInterval = setInterval(moveGame,1000);
+				}
+				break;
 				default:
-					break;
+				break;
 			}
 		});
 
@@ -428,7 +428,7 @@ function tetrisGame(){
 	function removeLine(lineIndex){
 		for(var i=0;i<gameColumns;i++){
 			var p = gameMap[lineIndex][i];
-				p.clear();
+			p.clear();
 		}
 
 		gameMapCounter[lineIndex] = 0;
