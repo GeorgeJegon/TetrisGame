@@ -1,4 +1,7 @@
-*{margin:0;padding:0}
+*{
+  margin:0;
+  padding:0
+}
 #gameWrapper{
 	font-family:"Trebuchet MS";
 	margin:20px auto;
@@ -14,9 +17,25 @@
 	text-align:center;
 	width:200px;
 }
-.box-game{border:solid 5px #ccc;border-radius:5px;padding:10px;}
-.clearfix{clear:both;}
-.lfloat{float:left;}
-.rfloat{float:right;}
-.btn{padding:3px 5px;width:100px;height:30px;}
-.hidden{display:none;}
+.box-game{
+  border:solid 5px #ccc;
+  border-radius:5px;
+  padding:10px;
+}
+.clearfix{
+  clear:both;
+}
+.lfloat{
+  float:left;
+}
+.rfloat{
+  float:right;
+}
+.btn{
+  padding:3px 5px;
+  width:100px;
+  height:30px;
+}
+.hidden{
+  display:none;
+}
